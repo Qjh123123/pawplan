@@ -61,6 +61,9 @@ class _FeatureScreenState extends State<FeatureScreen> {
                 description: 'Member B/C/D can replace this with real forms.',
                 deadline: DateTime.now(),
                 priority: 'Medium',
+                isCompleted: false,
+                createdAt: DateTime.now(),
+                updatedAt: DateTime.now(),
               ),
             );
             _tasks = _storageService.getAllTasks();

@@ -1,6 +1,8 @@
 import '../models/study_task.dart';
 
 class TaskStorageService {
+  static final DateTime _seedDate = DateTime(2026, 6, 22);
+
   static final List<StudyTask> _tasks = [
     StudyTask(
       id: '1',
@@ -9,6 +11,9 @@ class TaskStorageService {
       description: 'Prepare the first version of the assignment screens.',
       deadline: DateTime(2026, 6, 20),
       priority: 'High',
+      isCompleted: false,
+      createdAt: _seedDate,
+      updatedAt: _seedDate,
     ),
     StudyTask(
       id: '2',
@@ -18,6 +23,9 @@ class TaskStorageService {
           'Explain insert, retrieve, update, and delete in the report.',
       deadline: DateTime(2026, 6, 22),
       priority: 'Medium',
+      isCompleted: false,
+      createdAt: _seedDate,
+      updatedAt: _seedDate,
     ),
   ];
 
@@ -32,7 +40,7 @@ class TaskStorageService {
   void updateTask(StudyTask updatedTask) {
     final index = _tasks.indexWhere((task) => task.id == updatedTask.id);
     if (index != -1) {
-      _tasks[index] = updatedTask;
+      _tasks[index] = updatedTask.copyWith(updatedAt: DateTime.now());
     }
   }
 
